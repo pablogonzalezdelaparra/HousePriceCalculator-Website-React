@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from "react";
 import UserSignStyle from "../styles/UserSignStyle.css";
 import icon from "../assets/icon-sign.png";
-// import Logo from '../assets/Logo.png'
+import Logo from '../assets/logo.png'
 
 import { TextInputField } from "evergreen-ui";
 
@@ -10,7 +10,9 @@ function UserSign(props) {
   return (
     <Fragment>
       <div className="background-blue">
-        <div className="logo"></div>
+        <div className="logo">
+          <img src={Logo} alt="Mavericks Logo" />
+        </div>
       </div>
       <div>
         <div className="icon">

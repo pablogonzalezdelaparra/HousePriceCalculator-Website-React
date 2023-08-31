@@ -5,6 +5,15 @@
     height: 60vh;
 }
 
+.background-blue > .logo {
+    z-index: 0;
+    position: absolute;
+    left: 10%;
+    top: 5%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+}
+
 .icon {
     z-index: 1;
     position: absolute;
@@ -21,6 +30,10 @@
 @media screen and (max-width: 768px) {
     .icon {
         display: none;
+    }
+
+    .background-blue > .logo {
+        left: 40%;
     }
 }
 
