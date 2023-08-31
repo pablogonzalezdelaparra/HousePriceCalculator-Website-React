@@ -14,7 +14,7 @@ function NavbarC() {
             <a href="#">Misión</a>
             <a href="#">Contacto</a>
             <div className="login">
-                <a href="#">Inicia Sesión</a>
+                <a href="#">Iniciar Sesión</a>
             </div>
         </div>
     </nav>

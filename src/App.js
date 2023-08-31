@@ -1,12 +1,12 @@
 import './App.css';
 import Landing from './pages/Landing';
 import NavbarC from './components/NavbarC';
+import UserSign from './pages/UserSign';
 
 function App() {
   return (
     <div className="App">
-      <NavbarC />
-      <Landing />
+      <UserSign />
     </div>
   );
 }
