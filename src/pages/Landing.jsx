@@ -10,7 +10,6 @@ function Landing() {
         </div>
         <div className='second-text'>
             <h2 className='title'><span className='first-title'>Precios justos</span><br/><span className='second-title'>Sin complicaciones</span></h2>
-            <p className='description'>Al introducir las características más relevantes de una propiedad, desvela su valor más equitativo. Obtén información precisa y resultados instantáneos que te respaldarán al tomar decisiones informadas sobre compra, venta o inversión inmobiliaria.</p>
             <button className='call-to-action'>Descubre cómo</button>
         </div>
     </div>
