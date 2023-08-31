@@ -6,7 +6,7 @@ import Logo from '../assets/logo.png'
 import { TextInputField } from "evergreen-ui";
 
 function UserSign(props) {
-  const [title, setTitle] = useState("Regístrate");
+  const [title, setTitle] = useState("Iniciar Sesión");
   return (
     <Fragment>
       <div className="background-blue">
@@ -22,18 +22,22 @@ function UserSign(props) {
           <div className="header">
             <div className="title">
               <p>
-                Bienvenido a <span>Mavericks</span>
+                Bienvenido a <span> <a href="#">Mavericks</a></span>
               </p>
               <p className="main-title">{title}</p>
             </div>
             <div className="optional">
               <p>
-                {title === "Inicia Sesión"
+                {title === "Iniciar Sesión"
                   ? "¿No tienes cuenta?"
                   : "¿Ya tienes cuenta?"}
                 <br />
-                <span onClick={() => {}}>
-                  {title === "Inicia Sesión" ? "Regístrate" : "Inicia Sesión"}
+                <span onClick={() => {
+                  setTitle(title === "Iniciar Sesión" ? "Registrarse" : "Iniciar Sesión");
+                }}>
+                  <a href="#">
+                    {title === "Iniciar Sesión" ? "Registrarse" : "Iniciar Sesión"}
+                  </a>
                 </span>
               </p>
             </div>
@@ -51,11 +55,11 @@ function UserSign(props) {
                 inputWidth="100%"
             />
             {
-                title === "Regístrate" ? (
+                title === "Registrarse" ? (
                     <div className="user-data">
                         <TextInputField
                             label="Nombre"
-                            placeholder="Nombre de usuario"
+                            placeholder="Nombre"
                             type="text"
                             required
                             onChange={(e) => {
@@ -66,7 +70,7 @@ function UserSign(props) {
                         />
                         <TextInputField
                             label="Apellido"
-                            placeholder="Apellido de usuario"
+                            placeholder="Apellido"
                             type="text"
                             required
                             onChange={(e) => {
@@ -90,9 +94,12 @@ function UserSign(props) {
                 inputWidth="100%"
             />
           </div>
-          <div className="button">
-            {title === "Regístrate" ? "Registrarse" : "Ingresa"}
-          </div>
+          <a href="#" className="button">
+            {title === "Registrarse" ? "Registrarse" : "Ingresar"}
+          </a>
+          <p className="datos-requeridos">
+            * Datos requeridos
+          </p>
         </div>
       </div>
     </Fragment>
