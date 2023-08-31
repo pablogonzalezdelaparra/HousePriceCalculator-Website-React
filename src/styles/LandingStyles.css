@@ -1,126 +1,134 @@
-.landing-main-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    width: 100vw;
-    background-image: url("../assets/landing-background.png");
-    background-repeat: no-repeat;
-    background-size: cover;
+.landing-main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-image: url("../assets/landing-background.png");
+  background-position: 0px -50px;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-.landing-main-container > .main-text{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    height: 100vh;
-    width: 100vw;
-    padding-left: 20%;
-    padding-right: 10%;
-    gap: 1rem;
+.landing-main-container > .main-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100vh;
+  width: 100vw;
+  padding-left: 8%;
+  gap: 1rem;
 }
 
-.landing-main-container > .main-text > .title{
-    font-size: 90px;
-    color: #fff;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    text-align: left;
+.landing-main-container > .main-text > .title {
+  font-size: 90px;
+  color: #fff;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-align: left;
 }
 
-.landing-main-container > .main-text > .description{
-    font-size: 1.5rem;
-    color: #fff;
-    font-weight: 400;
-    margin-bottom: 1rem;
-    text-align: left;
-    width: 35ch;
+.landing-main-container > .main-text > .description {
+  font-size: 1.5rem;
+  color: #fff;
+  font-weight: 400;
+  margin-bottom: 1rem;
+  text-align: left;
+  line-height: 1.25;
+  width: 35ch;
 }
 
 .landing-main-container > .second-text {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: flex-end;
-    height: 20vh;
-    width: 100vw;
-    padding-right: 5%;
-    gap: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  height: 20vh;
+  width: 100vw;
+  padding-right: 5%;
+  gap: 12px;
 }
 
-.landing-main-container > .second-text > .title{
-    font-size: 45px;
-    font-weight: 700;
-    margin-bottom: 16px;
-    text-align: right;
+.landing-main-container > .second-text > .title {
+  font-size: 45px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  text-align: right;
 }
 
-.landing-main-container > .second-text > .title > .first-title{
-    color: #0193FD;
+.landing-main-container > .second-text > .title > .first-title {
+  color: #0193fd;
 }
 
-.landing-main-container > .second-text > .title > .second-title{
-    color: #3F51F4;
+.landing-main-container > .second-text > .title > .second-title {
+  color: #3f51f4;
 }
 
-.landing-main-container > .second-text > .description{
-    font-size: 16px;
-    line-height: 1.5;
-    font-weight: 400;
-    text-align: right;
-    width: 56ch;
-    margin-bottom: 24px;
+.landing-main-container > .second-text > .description {
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  text-align: right;
+  width: 56ch;
+  margin-bottom: 24px;
 }
 
-.landing-main-container > .second-text > .call-to-action{
-    margin-bottom: 32px;
-    text-decoration: none;
-    background-color: transparent;
-    color: #3F51F4;
-    border: 1px solid #3F51F4;
-    border-radius: 16px;
-    padding: 12px 24px;
-    font-size: 18px;
+.landing-main-container > .second-text > .call-to-action {
+  margin-bottom: 32px;
+  text-decoration: none;
+  background-color: transparent;
+  color: #3f51f4;
+  border: 1px solid #3f51f4;
+  border-radius: 16px;
+  padding: 12px 24px;
+  font-size: 18px;
 }
 
-@media screen and (max-width: 600px){
-    .landing-main-container{
-        background: linear-gradient(180deg, #3F51F4 0%, #0193FD 80%, #fff 100%);
-    }
+.landing-main-container > .second-text > .call-to-action:hover {
+    background-color: #3f51f4;
+    color: #fff;
+    font-weight: bolder;
+    transition: all 0.3s;
+}
 
-    .landing-main-container > .main-text{
-        justify-content: start;
-        margin-top: 64px;
-        gap: 0px;
-    }
+@media screen and (max-width: 1300px) {
+  .landing-main-container {
+    background: linear-gradient(180deg, #3f51f4 0%, #0193fd 80%, #fff 100%);
+  }
 
-    .landing-main-container > .main-text > .title{
-        font-size: 48px;
-    }
+  .landing-main-container > .main-text {
+    justify-content: start;
+    margin-top: 64px;
+    gap: 0px;
+  }
 
-    .landing-main-container > .main-text > .description{
-        font-size: 16px;
-        width: 24ch;
-    }
+  .landing-main-container > .main-text > .title {
+    font-size: 60px;
+  }
 
-    .landing-main-container > .second-text{
-        margin-top: 24px;
-    }
+  .landing-main-container > .main-text > .description {
+    font-size: 20px;
+    width: 30ch;
+  }
 
-    .landing-main-container > .second-text > .title{
-        font-size: 32px;
-        margin-bottom: 8px;
-    }
+  .landing-main-container > .second-text {
+    margin-top: 24px;
+  }
 
-    .landing-main-container > .second-text > .title > .first-title{
-        color: #fff;
-    }    
+  .landing-main-container > .second-text > .title {
+    font-size: 32px;
+    margin-bottom: 8px;
+  }
 
-    .landing-main-container > .second-text > .description{
-        font-size: 12px;
-        width: 40ch;
-        margin-bottom: 8px;
-    }
+  .landing-main-container > .second-text > .title > .first-title {
+    color: #fff;
+  }
+
+  .landing-main-container > .second-text > .description {
+    font-size: 12px;
+    width: 40ch;
+    margin-bottom: 8px;
+  }
 }

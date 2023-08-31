@@ -26,29 +26,30 @@
 .navbar > .links a {
   text-decoration: none;
   transition: color 0.3s;
-  color: black;
+  color: white;
   transition: all 0.3s;
 }
 
 .navbar > .links a:hover {
   font-weight: bolder;
+  transition: all 0.3s;
 }
+
 
 .navbar > .links > .login {
     background-color: transparent;
-    border: 1px solid black;
+    border: 1px solid white;
     padding: 8px 12px;
     border-radius: 16px;
     transition: all 0.3s;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 950px) {
   .navbar > .links > a{
     display: none;
   }
 
   .navbar > .links > .login {
-    padding: 4px 8px;
     font-size: 12px;
   }
 }
