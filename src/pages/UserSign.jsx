@@ -3,7 +3,7 @@ import UserSignStyle from "../styles/UserSignStyle.css";
 import icon from "../assets/icon-sign.png";
 import Logo from "../assets/logo.png";
 import { toast, ToastContainer } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 import { signUp, signIn, verifyCode } from "../services/authService";
 import Cookies from "js-cookie";
 
@@ -158,7 +158,7 @@ function UserSign(props) {
                   type="text"
                   required
                   onChange={(e) => {
-                    editUserInfo("name", e.target.value);
+                    console.log(e.target.value);
                   }}
                   width="100%"
                   inputWidth="100%"
@@ -170,7 +170,7 @@ function UserSign(props) {
                   type="text"
                   required
                   onChange={(e) => {
-                    editUserInfo("lastName", e.target.value);
+                    console.log(e.target.value);
                   }}
                   width="100%"
                   inputWidth="100%"
@@ -184,7 +184,7 @@ function UserSign(props) {
               type="password"
               required
               onChange={(e) => {
-                editUserInfo("password", e.target.value);
+                console.log(e.target.value);
               }}
               width="100%"
               inputWidth="100%"

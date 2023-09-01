@@ -1,0 +1,172 @@
+.comentarios-main-container{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100vw;
+    margin-top: 20px;
+    gap: 36px;
+}
+
+.comentarios-main-container > .comentarios-title-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+}
+
+.comentarios-main-container > .comentarios-title-container > p{
+    font-size: 36px;
+    font-weight: 700;
+    color: #3f51f4;
+}
+
+.comentarios-main-container > .comentarios-swipper {
+    width: 100vw;
+}
+
+.swipper {
+    width: 100%;
+}
+
+.swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 300px !important;
+  }
+  
+
+  element.style {
+    opacity: 0;
+    transition-duration: 0ms;
+}
+.swiper-3d .swiper-slide-shadow-left {
+    background-image: linear-gradient(to left, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+}
+
+.swiper-3d .swiper-slide-shadow, .swiper-3d .swiper-slide-shadow-left, .swiper-3d .swiper-slide-shadow-right, .swiper-3d .swiper-slide-shadow-top, .swiper-3d .swiper-slide-shadow-bottom, .swiper-3d .swiper-slide-shadow, .swiper-3d .swiper-slide-shadow-left, .swiper-3d .swiper-slide-shadow-right, .swiper-3d .swiper-slide-shadow-top, .swiper-3d .swiper-slide-shadow-bottom {
+    display: none;
+}
+
+.swiper-slide > .comment-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 90%;
+    padding: 4px 8px;
+    border: 1px solid #0089FF;
+    height: 100%;
+    border-radius: 8px;
+    margin-bottom: 42px;
+}
+
+.swiper-slide > .comment-item > .comment-item-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    width: 100%;
+}
+
+.swiper-slide > .comment-item > .comment-item-header > .profile-image {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-position: center;
+    background-size: cover;
+    background-image: url("../assets/profile-image.png");
+}
+
+.swiper-slide > .comment-item > .comment-item-header > .name{
+    font-size: 16px;
+    font-weight: 600;
+    text-align: left;
+}
+
+.swiper-slide > .comment-item > .comment-item-body {
+    font-size: 14px;
+    font-weight: 400;
+    text-align: left;
+}
+
+.comentarios-main-container > .comentarios-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    margin: 24px 0px;
+}
+
+.comentarios-main-container > .comentarios-form > .form-container{
+    border: 1px solid #0089FF;
+    border-radius: 8px;
+    min-width: 60vw;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 8px;
+    padding: 8px 12px;
+}
+
+.comentarios-main-container > .comentarios-form > .form-container > .comentarios-form-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    width: 100%;
+}
+
+.comentarios-main-container > .comentarios-form > .form-container > .comentarios-form-header > .profile-image {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-position: center;
+    background-size: cover;
+    background-image: url("../assets/profile-image.png");
+}
+
+.comentarios-main-container > .comentarios-form > .comentarios-form-header > .name{
+    font-size: 16px;
+    font-weight: 600;
+    text-align: left;
+}
+
+
+.comentarios-main-container > .comentarios-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    text-align: left;
+}
+
+.comentarios-main-container > .comentarios-form > .form-container > .comentarios-button{
+    align-self: flex-end;
+    background-color: #3f51f4;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 12px;
+    transition: all .3s;
+}
+
+@media screen and (max-width: 768px) {
+    .comentarios-main-container > .comentarios-title-container > p{
+        font-size: 24px;
+    }
+
+    .comentarios-main-container > .comentarios-form > .form-container {
+        width: 80%;
+    }
+    .swiper-slide {
+        width: 200px !important;
+    }
+}
+
