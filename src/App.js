@@ -4,6 +4,8 @@ import NavbarC from './components/NavbarC';
 import UserSign from './pages/UserSign';
 import FormCotizacion from './components/FormCotizacion';
 import Comentarios from './components/Comentarios';
+import DashboardsC from './components/DashboardsC';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -12,6 +14,8 @@ function App() {
       <Landing />
       <FormCotizacion />
       <Comentarios />
+      <DashboardsC />
+      <Footer />
     </div>
   );
 }
