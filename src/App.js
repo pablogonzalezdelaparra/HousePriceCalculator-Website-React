@@ -3,6 +3,7 @@ import Landing from './pages/Landing';
 import NavbarC from './components/NavbarC';
 import UserSign from './pages/UserSign';
 import FormCotizacion from './components/FormCotizacion';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <NavbarC />
       <Landing />
       <FormCotizacion />
+      <Footer />
     </div>
   );
 }
