@@ -3,6 +3,7 @@ import UserSignStyle from "../styles/UserSignStyle.css";
 import icon from "../assets/icon-sign.png";
 import Logo from "../assets/logo.png";
 import { toast, ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 import { signUp, signIn, verifyCode } from "../services/authService";
 import Cookies from "js-cookie";
 
@@ -44,7 +45,7 @@ function UserSign(props) {
           }
           // Iniciar sesión con usuario registrado
           const signInResponse = await signIn(userInfo);
-          if (!signInResponse) {
+          if (signInResponse === undefined || null) {
             // TODO: Redireccionar a página de iniciar sesión
             console.log("Error al iniciar sesión con usuario registrado");
           }
@@ -66,8 +67,7 @@ function UserSign(props) {
         } else {
           // Iniciar sesión
           const response = await signIn(userInfo);
-          console.log(response);
-          if (!response) {
+          if (response === undefined || null) {
             throw new Error("Datos de usuario incorrectos");
           }
           // Guardar token en cookies

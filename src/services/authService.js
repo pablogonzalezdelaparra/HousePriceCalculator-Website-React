@@ -41,7 +41,7 @@ export async function signIn(userInfo) {
 export async function verifyCode(verifyUserData) {
   const bodyVerifyData = {
     email: verifyUserData.email,
-    code: verifyUserData.verifyCode,
+    verifyCode: verifyUserData.verifyCode,
   };
   const validateVerification = await fetch(`${API_BASE_URL}/auth/verify`, {
     method: "POST",
