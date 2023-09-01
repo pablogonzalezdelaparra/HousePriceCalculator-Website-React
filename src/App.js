@@ -7,9 +7,7 @@ import FormCotizacion from './components/FormCotizacion';
 function App() {
   return (
     <div className="App">
-      <NavbarC />
-      <Landing />
-      <FormCotizacion />
+      <UserSign />
     </div>
   );
 }

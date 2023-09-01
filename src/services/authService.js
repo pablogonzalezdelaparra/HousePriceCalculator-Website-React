@@ -4,7 +4,7 @@ export async function signUp(userInfo) {
   const bodyUserData = {
       email: userInfo.email,
       name: userInfo.name,
-      last_name: userInfo.last_name,
+      lastName: userInfo.lastName,
       password: userInfo.password,
   };
   const validateSignup = await fetch(`${API_BASE_URL}/auth/signup`, {
@@ -38,10 +38,10 @@ export async function signIn(userInfo) {
   return validateToken;
 }
 
-export async function verify(verifyUserData) {
+export async function verifyCode(verifyUserData) {
   const bodyVerifyData = {
     email: verifyUserData.email,
-    code: verifyUserData.code,
+    code: verifyUserData.verifyCode,
   };
   const validateVerification = await fetch(`${API_BASE_URL}/auth/verify`, {
     method: "POST",
