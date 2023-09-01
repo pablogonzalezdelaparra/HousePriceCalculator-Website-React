@@ -158,7 +158,7 @@ function UserSign(props) {
                   type="text"
                   required
                   onChange={(e) => {
-                    console.log(e.target.value);
+                    editUserInfo("name", e.target.value);
                   }}
                   width="100%"
                   inputWidth="100%"
@@ -170,7 +170,7 @@ function UserSign(props) {
                   type="text"
                   required
                   onChange={(e) => {
-                    console.log(e.target.value);
+                    editUserInfo("lastName", e.target.value);
                   }}
                   width="100%"
                   inputWidth="100%"
@@ -184,7 +184,7 @@ function UserSign(props) {
               type="password"
               required
               onChange={(e) => {
-                console.log(e.target.value);
+                editUserInfo("password", e.target.value);
               }}
               width="100%"
               inputWidth="100%"
