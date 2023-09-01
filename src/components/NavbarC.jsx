@@ -1,22 +1,41 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import NavbarCStyle from "../styles/NavbarCStyle.css";
 import Logo from "../assets/logo.png";
+import Cookies from "js-cookie";
 
 function NavbarC() {
+  const [title, setTitle] = useState("Iniciar Sesión");
+
+  useEffect(() => {
+    const userToken = Cookies.get("userToken");
+    if (userToken) {
+      setTitle("Cerrar Sesión");
+    }
+  }, [title]);
+
+  // if title is "Cerrar Sesión" then delete cookies
+  const handleTitle = () => {
+    if (title === "Cerrar Sesión") {
+      Cookies.remove("userToken");
+      setTitle("Iniciar Sesión");
+    }
+  };
 
   return (
     <nav className="navbar">
-        <div className="logo">
-            <img src={Logo} alt="Mavericks Logo"/>
+      <div className="logo">
+        <img src={Logo} alt="Mavericks Logo" />
+      </div>
+      <div className="links">
+        <a href="#">Inicio</a>
+        <a href="#">Misión</a>
+        <a href="#">Contacto</a>
+        <div className="login">
+          <a href="#" onClick={handleTitle()}>
+            {title}
+          </a>
         </div>
-        <div className="links">
-            <a href="#">Inicio</a>
-            <a href="#">Misión</a>
-            <a href="#">Contacto</a>
-            <div className="login">
-                <a href="#">Iniciar Sesión</a>
-            </div>
-        </div>
+      </div>
     </nav>
   );
 }
