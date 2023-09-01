@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import UserSignStyle from "../styles/UserSignStyle.css";
 import icon from "../assets/icon-sign.png";
 import Logo from '../assets/logo.png'
@@ -8,6 +8,15 @@ import { TextInputField } from "evergreen-ui";
 function UserSign(props) {
   const [title, setTitle] = useState("Iniciar Sesión");
   const [verifyFlag, setVerifyFlag] = useState(false);
+  const [disabledFlag, setDisabledFlag] = useState(false);
+
+  useEffect(() => {
+    if (title === "Registrarse") {
+      setDisabledFlag(verifyFlag);
+    }else{
+      setDisabledFlag(false);
+    }
+  }, [verifyFlag]);
 
   return (
     <Fragment>
@@ -55,6 +64,7 @@ function UserSign(props) {
                 }}
                 width="100%"
                 inputWidth="100%"
+                disabled={disabledFlag}
             />
             {
                 title === "Registrarse" ? (
@@ -69,6 +79,7 @@ function UserSign(props) {
                             }}
                             width="100%"
                             inputWidth="100%"
+                            disabled={disabledFlag}
                         />
                         <TextInputField
                             label="Apellido"
@@ -80,6 +91,7 @@ function UserSign(props) {
                             }}
                             width="100%"
                             inputWidth="100%"
+                            disabled={disabledFlag}
                         />
                     </div>
                 ) : null
@@ -94,6 +106,7 @@ function UserSign(props) {
                 }}
                 width="100%"
                 inputWidth="100%"
+                disabled={disabledFlag}
             />
             {
               (verifyFlag && title == "Registrarse"  )? (
