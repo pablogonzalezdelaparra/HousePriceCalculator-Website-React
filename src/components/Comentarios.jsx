@@ -115,10 +115,14 @@ function Comentarios() {
               <p className="name">Usuario</p>
             </div>
             <TextareaField
+              className="comentarios-textarea"
               label="Comparte tu experiencia...."
               placeholder="Lo que más me gustó fue..."
               width="100%"
             />
+            <div className="comentarios-button">
+              <span>Enviar</span>
+            </div>
           </div>
         </div>
       </div>
