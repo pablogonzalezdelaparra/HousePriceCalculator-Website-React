@@ -109,7 +109,7 @@ function UserSign(props) {
                 disabled={disabledFlag}
             />
             {
-              (verifyFlag && title == "Registrarse"  )? (
+              (verifyFlag && title === "Registrarse"  )? (
                 <TextInputField
                   label="Ingresa el código de verificación"
                   placeholder="Código de verificación"

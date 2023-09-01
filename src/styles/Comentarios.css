@@ -151,6 +151,10 @@
     .comentarios-main-container > .comentarios-title-container > p{
         font-size: 24px;
     }
+
+    .comentarios-main-container > .comentarios-form > .form-container {
+        width: 80%;
+    }
     .swiper-slide {
         width: 200px !important;
     }
