@@ -45,7 +45,7 @@ function Footer() {
             <p class="footer-copyright-text">
               <a class="footer-copyright-link" href="https://github.com/pablogonzalezdelaparra/mavericks-frontend" target="_blank">
                 {" "}
-                ©2023. | Mavericks.{" "} 
+                © 2023 | Mavericks{" "} 
               </a>
             </p>
           </div>
