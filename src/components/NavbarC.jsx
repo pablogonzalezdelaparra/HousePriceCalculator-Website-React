@@ -8,7 +8,6 @@ import { useNavigate } from "react-router-dom";
 function NavbarC() {
   const [title, setTitle] = useState("Iniciar Sesión");
   const navigate = useNavigate();
-  console.log(title);
   useEffect(() => {
     const userToken = Cookies.get("userToken");
     if (userToken && title === "Iniciar Sesión") {

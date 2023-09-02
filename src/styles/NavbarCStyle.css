@@ -1,5 +1,7 @@
 .navbar {
-  background-color: transparent;
+  /*Agregar un color transparente blureado para que se vean las letras blancas*/
+  background-color: rgba(63, 81, 244, .5);
+  backdrop-filter: blur(10px);
   position: fixed;
   top: 0;
   left: 0;
