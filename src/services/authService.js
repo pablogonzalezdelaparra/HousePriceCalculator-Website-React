@@ -61,7 +61,7 @@ export async function getUser(userInfo) {
     email: userInfo.email,
   };
   const validateUser = await fetch(`${API_BASE_URL}/auth/getUser`, {
-    method: "GET",
+    method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
@@ -69,8 +69,8 @@ export async function getUser(userInfo) {
   }).then(async (response) => {
     const data = await response.json();
     const userInfoData = {
-      name: data.name,
-      lastName: data.lastName,
+      name: data.user.name,
+      lastName: data.user.lastName,
     };
     return userInfoData;
   });

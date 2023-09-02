@@ -1,4 +1,5 @@
 import { API_BASE_URL } from "../config";
+import Cookies from "js-cookie";
 
 export async function getComments() {
   const validateComments = await fetch(`${API_BASE_URL}/comment/getComments`, {

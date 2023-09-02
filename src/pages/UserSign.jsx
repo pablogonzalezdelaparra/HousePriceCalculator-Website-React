@@ -2,9 +2,9 @@ import React, { Fragment, useState, useEffect } from "react";
 import UserSignStyle from "../styles/UserSignStyle.css";
 import icon from "../assets/icon-sign.png";
 import Logo from "../assets/logo.png";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { signUp, signIn, verifyCode } from "../services/authService";
+import { signUp, signIn, verifyCode, getUser } from "../services/authService";
 import Cookies from "js-cookie";
 import { useNavigate, Link } from "react-router-dom";
 
@@ -53,9 +53,10 @@ function UserSign(props) {
 
           // TODO: Redireccionar a página de inicio
           navigate("/");
-
           // Guardar token en cookies
           Cookies.set("userToken", signInResponse);
+          Cookies.set("name", userInfo.name);
+          Cookies.set("lastName", userInfo.lastName);
         } else if (title === "Registrarse") {
           // Registrar usuario
           const response = await signUp(userInfo);
@@ -68,7 +69,14 @@ function UserSign(props) {
           if (response === undefined || null) {
             throw new Error("Datos de usuario incorrectos");
           }
+          const userData = await getUser(userInfo);
+          console.log("userData", userData);
+          if (userData === undefined || null || userData.name === undefined || null) {
+            throw new Error("Datos de usuario incorrectos");
+          }
           // Guardar token en cookies
+          Cookies.set("name", userData.name);
+          Cookies.set("lastName", userData.lastName);
           Cookies.set("userToken", response);
 
           // TODO: Redireccionar a página de inicio
@@ -89,7 +97,6 @@ function UserSign(props) {
 
   return (
     <Fragment>
-      <ToastContainer />
       <div className="background-blue">
         <div className="logo" onClick={()=>{
           navigate("/");
