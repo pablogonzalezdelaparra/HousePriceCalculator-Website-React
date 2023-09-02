@@ -2,10 +2,10 @@ import { API_BASE_URL } from "../config";
 
 export async function signUp(userInfo) {
   const bodyUserData = {
-      email: userInfo.email,
-      name: userInfo.name,
-      lastName: userInfo.lastName,
-      password: userInfo.password,
+    email: userInfo.email,
+    name: userInfo.name,
+    lastName: userInfo.lastName,
+    password: userInfo.password,
   };
   const validateSignup = await fetch(`${API_BASE_URL}/auth/signup`, {
     method: "POST",
@@ -21,10 +21,10 @@ export async function signUp(userInfo) {
 }
 
 export async function signIn(userInfo) {
-    const bodyUserData = {
-        email: userInfo.email,
-        password: userInfo.password,
-    };
+  const bodyUserData = {
+    email: userInfo.email,
+    password: userInfo.password,
+  };
   const validateToken = await fetch(`${API_BASE_URL}/auth/signin`, {
     method: "POST",
     headers: {
@@ -54,4 +54,25 @@ export async function verifyCode(verifyUserData) {
     return data.message;
   });
   return validateVerification;
+}
+
+export async function getUser(userInfo) {
+  const bodyUserData = {
+    email: userInfo.email,
+  };
+  const validateUser = await fetch(`${API_BASE_URL}/auth/getUser`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(bodyUserData),
+  }).then(async (response) => {
+    const data = await response.json();
+    const userInfoData = {
+      name: data.name,
+      lastName: data.lastName,
+    };
+    return userInfoData;
+  });
+  return validateUser;
 }
