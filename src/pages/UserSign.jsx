@@ -6,13 +6,15 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { signUp, signIn, verifyCode } from "../services/authService";
 import Cookies from "js-cookie";
+import { useNavigate, Link } from "react-router-dom";
 
 import { TextInputField } from "evergreen-ui";
 
 function UserSign(props) {
-  const [title, setTitle] = useState("Iniciar Sesión");
+  const [title, setTitle] = useState(props.type ? props.type : "Iniciar Sesión");
   const [verifyFlag, setVerifyFlag] = useState(false);
   const [disabledFlag, setDisabledFlag] = useState(false);
+  const navigate = useNavigate();
 
   const [userInfo, setUserInfo] = useState({
     email: "",
@@ -46,12 +48,11 @@ function UserSign(props) {
           // Iniciar sesión con usuario registrado
           const signInResponse = await signIn(userInfo);
           if (signInResponse === undefined || null) {
-            // TODO: Redireccionar a página de iniciar sesión
-            console.log("Error al iniciar sesión con usuario registrado");
+            navigate("/login");
           }
 
           // TODO: Redireccionar a página de inicio
-          console.log("Usuario registrado y logueado correctamente");
+          navigate("/");
 
           // Guardar token en cookies
           Cookies.set("userToken", signInResponse);
@@ -61,9 +62,6 @@ function UserSign(props) {
           if (response !== "ok") {
             throw new Error("Error al registrar usuario");
           }
-
-          // TODO: Redireccionar a página de inicio
-          console.log("Usuario registrado correctamente");
         } else {
           // Iniciar sesión
           const response = await signIn(userInfo);
@@ -74,7 +72,7 @@ function UserSign(props) {
           Cookies.set("userToken", response);
 
           // TODO: Redireccionar a página de inicio
-          console.log("Usuario logueado correctamente");
+          navigate("/");
         }
       },
       {
@@ -93,7 +91,9 @@ function UserSign(props) {
     <Fragment>
       <ToastContainer />
       <div className="background-blue">
-        <div className="logo">
+        <div className="logo" onClick={()=>{
+          navigate("/");
+        }}>
           <img src={Logo} alt="Mavericks Logo" />
         </div>
       </div>
@@ -108,7 +108,7 @@ function UserSign(props) {
                 Bienvenido a{" "}
                 <span>
                   {" "}
-                  <a href="#">Mavericks</a>
+                  <Link to="/"> Mavericks </Link>
                 </span>
               </p>
               <p className="main-title">{title}</p>
