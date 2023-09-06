@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import NavbarCStyle from "../styles/NavbarCStyle.css";
 import Logo from "../assets/logo.png";
 import Cookies from "js-cookie";
+import { toast } from "react-toastify";
 
 import { useNavigate } from "react-router-dom";
 
@@ -18,8 +19,21 @@ function NavbarC() {
   // if title is "Cerrar Sesión" then delete cookies
   const handleTitle = () => {
     if (title === "Cerrar Sesión") {
-      Cookies.remove("userToken");
-      setTitle("Iniciar Sesión");
+      toast.promise(
+        async () => {
+            Cookies.remove("userToken");
+            setTitle("Iniciar Sesión");
+        },
+        {
+          pending: "Cerrando sesión...",
+          success: "Sesión cerrada",
+          error: "Error al cerrar sesión",
+        }, {
+          pauseOnFocusLoss: false,
+          pauseOnHover: false,
+          autoClose: 3000,
+        }
+      )
     } else {
       navigate("/login");
     }
