@@ -1,25 +1,43 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import NavbarCStyle from "../styles/NavbarCStyle.css";
 import Logo from "../assets/logo.png";
 import Cookies from "js-cookie";
 
 import { useNavigate } from "react-router-dom";
 
+import { UserContext } from "../pages/RoutesPage";
+
 function NavbarC() {
   const [title, setTitle] = useState("Iniciar Sesión");
+  const { userData, setUserData } = useContext(UserContext);
+
   const navigate = useNavigate();
   useEffect(() => {
-    const userToken = Cookies.get("userToken");
-    if (userToken && title === "Iniciar Sesión") {
-      setTitle("Cerrar Sesión");
+    if (!userData){
+      const userToken = Cookies.get("userToken");
+      const name = Cookies.get("name");
+      const lastName = Cookies.get("lastName");
+      if (userToken && name && lastName) {
+        setUserData({ userToken, name, lastName });
+      }
     }
   }, []);
 
-  // if title is "Cerrar Sesión" then delete cookies
+  useEffect(() => {
+    if (userData) {
+      setTitle("Cerrar Sesión");
+    } else {
+      setTitle("Iniciar Sesión");
+    }
+  }, [userData]);
+
   const handleTitle = () => {
     if (title === "Cerrar Sesión") {
       Cookies.remove("userToken");
+      Cookies.remove("name");
+      Cookies.remove("lastName");
       setTitle("Iniciar Sesión");
+      setUserData(null);
     } else {
       navigate("/login");
     }
@@ -31,11 +49,11 @@ function NavbarC() {
         <img src={Logo} alt="Mavericks Logo" />
       </div>
       <div className="links">
-        <a href="#">Inicio</a>
-        <a href="#">Misión</a>
-        <a href="#">Contacto</a>
+        <a>Inicio</a>
+        <a>Misión</a>
+        <a>Contacto</a>
         <div className="login">
-            <a href="#" onClick={()=>handleTitle()}>
+            <a onClick={handleTitle}>
               {title}
             </a>
         </div>

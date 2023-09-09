@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from "react";
+import React, { Fragment, useState, useEffect, useContext } from "react";
 import ComentariosStyle from "../styles/Comentarios.css";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -12,24 +12,31 @@ import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 
 import { TextareaField } from "evergreen-ui";
-
 import { getComments, createComment } from "../services/commentService";
-
-import Cookies from "js-cookie";
+import { UserContext } from "../pages/RoutesPage";
 
 function Comentarios() {
   const [commentsList, setCommentsList] = useState([]);
   const [comentario, setComment] = useState("");
-  const [userInfo, setUserInfo] = useState(null);
+  const [comentsLoaded, setComentsLoaded] = useState(false);
+  const {userData} = useContext(UserContext);
 
   useEffect(() => {
-    getComments().then((res) => {
-      setCommentsList(res);
-    });
-    const name = Cookies.get("name");
-    const lastName = Cookies.get("lastName");
-    if (name !== undefined && lastName !== undefined && userInfo === null){
-      setUserInfo({ name, lastName });
+    if (!comentsLoaded){
+      toast.promise(
+        getComments().then((res) => {
+          setCommentsList(res);
+        })
+        , {
+          pending: "Cargando comentarios...",
+          success: "Comentarios cargados",
+          error: "Error al cargar comentarios",
+        }, {
+          pauseOnFocusLoss: false,
+          autoClose: 3000,
+          pauseOnHover: false,
+      });
+      setComentsLoaded(true);
     }
   }, []);
 
@@ -51,6 +58,7 @@ function Comentarios() {
       }, {
         pauseOnFocusLoss: false,
         autoClose: 3000,
+        pauseOnHover: false,
       }
     );
   };
@@ -105,16 +113,17 @@ function Comentarios() {
           <div className="form-container">
             <div className="comentarios-form-header">
               <div className="profile-image"></div>
-              <p className="name">{userInfo !== null ? userInfo?.name + " " + userInfo.lastName : "Usuario"}</p>
+              <p className="name">{userData !== null ? userData?.name + " " + userData.lastName : "Usuario"}</p>
             </div>
             <TextareaField
               className="comentarios-textarea"
               label="Comparte tu experiencia...."
-              placeholder="Lo que más me gustó fue..."
+              placeholder={userData === null ? "Inicia sesión para comentar" : "Lo que más me gustó fue..."}
               width="100%"
               onChange={(e) => {
                 setComment(e.target.value);
               }}
+              disabled={userData === null}
             />
             <div className="comentarios-button" onClick={handleCreateComment}>
               <span>Enviar</span>
