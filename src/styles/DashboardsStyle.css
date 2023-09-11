@@ -35,3 +35,9 @@
     padding: 36px 0px;
     gap: 24px;
 }
+
+@media screen and (max-width: 768px) {
+    .dashboards-main-container{
+        width: 70%;
+    }
+}
