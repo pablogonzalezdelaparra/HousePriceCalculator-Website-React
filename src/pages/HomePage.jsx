@@ -6,6 +6,7 @@ import Comentarios from '../components/Comentarios';
 import DashboardsC from '../components/DashboardsC';
 import FormCotizacion from '../components/FormCotizacion';
 import Footer from '../components/Footer';
+import RenderLineChart from '../components/PruebaGraficaLinea';
 
 function HomePage() {
   return (
@@ -14,6 +15,7 @@ function HomePage() {
         <Landing />
         <FormCotizacion />
         <DashboardsC />
+        <RenderLineChart />
         <Comentarios />
         <Footer />
     </div>
