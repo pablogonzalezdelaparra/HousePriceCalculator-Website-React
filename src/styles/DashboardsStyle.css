@@ -30,8 +30,9 @@
     align-items: center;
     width: 300px;
     height: 150px;
-    background: linear-gradient(180deg, #0193fd, #3f51f4);
-    border-radius: 10px;
+    border: 1px solid transparent;
+    background: linear-gradient(white, white) padding-box, linear-gradient(180deg, #0193fd, #3f51f4) border-box;
+    border-radius: 12px;
     padding: 36px 0px;
     gap: 24px;
 }
