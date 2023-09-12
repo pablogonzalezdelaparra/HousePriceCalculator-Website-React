@@ -6,6 +6,7 @@ import Comentarios from '../components/Comentarios';
 import DashboardsC from '../components/DashboardsC';
 import FormCotizacion from '../components/FormCotizacion';
 import Footer from '../components/Footer';
+import LineGraph from '../components/LineGraph';
 
 function HomePage() {
   return (

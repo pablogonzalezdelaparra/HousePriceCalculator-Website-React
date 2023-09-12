@@ -2,6 +2,7 @@ import React, { Fragment } from "react";
 import DashboardsStyle from "../styles/DashboardsStyle.css";
 import Box from "@mui/material/Box";
 import Slider from "@mui/material/Slider";
+import LineGraph from "./LineGraph";
 
 function DashboardsC() {
   const marks = [
@@ -45,10 +46,13 @@ function DashboardsC() {
         </div>
         <div className="dashboards-container">
             <div className="dashboards-item">
+              <LineGraph />
             </div>
             <div className="dashboards-item">
+              <LineGraph />
             </div>
             <div className="dashboards-item">
+              <LineGraph />
             </div>
         </div>
       </div>
