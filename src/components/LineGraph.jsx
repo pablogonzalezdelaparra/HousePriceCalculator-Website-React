@@ -3,7 +3,7 @@ import LineGraphStyle from "../styles/LineGraphStyle.css";
 import { Line } from "@ant-design/charts";
 
 function LineGraph(props) {
-  const data = props.datos ? props.datos : [
+  const data = props.data ? props.data : [
     { year: "1991", value: 3 },
     { year: "1992", value: 4 },
     { year: "1993", value: 3.5 },

@@ -13,6 +13,7 @@ function DashboardsC() {
   const [filteredData, setFilteredData] = useState([]);
   const [msZoningData, setMsZoningData] = useState([]);
   const [overallCondData, setOverallCondData] = useState([]);
+  const [yearBuiltData, setYearBuiltData] = useState([]);
 
   const marks = [
     {
@@ -152,13 +153,17 @@ function DashboardsC() {
     setOverallCondData(overallCondDataArray);
   };
 
-  
+  const getYearBuiltData = () => {
+    const yearBuiltData = getDashboardsData("YearBuilt");
+    yearBuiltData.splice(15, yearBuiltData.length - 15);
+    setYearBuiltData(yearBuiltData);
+  };
 
   const getAllDatas = () => {
     getMsZoningData();
     getOverallCondData();
+    getYearBuiltData();
   };
-
   return (
     <Fragment>
       <div className="dashboards-main-container">
@@ -176,7 +181,7 @@ function DashboardsC() {
         <div className="dashboards-container">
           <div className="dashboards-item">
             <ColumnGraph
-              datos={msZoningData}
+              data={msZoningData}
               xField={"name"}
               yField={"value"}
             />
@@ -185,7 +190,7 @@ function DashboardsC() {
             <PieGraph data={overallCondData} xField={"name"} yField={"value"} />
           </div>
           <div className="dashboards-item">
-            <LineGraph />
+            <LineGraph data={yearBuiltData} xField={"name"} yField={"value"} />
           </div>
           <div className="dashboards-item">
             <LineGraph />
