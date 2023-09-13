@@ -74,10 +74,10 @@ function DashboardsC() {
     });
   };
 
-  const filterDataFromPrice = (prices) => {
+  const filterDataFromPrice = () => {
     let valueRanges = value.sort((a, b) => a - b);
     valueRanges = valueRanges.map((value) => {
-      return Math.round((value * 715000) / 100);
+      return Math.round((value * 750000) / 100);
     });
     const filteredData = csvData.filter((data) => {
       return (
@@ -237,30 +237,39 @@ function DashboardsC() {
         </div>
         <div className="dashboards-container">
           <div className="dashboards-item">
+            <div className="dashboard-item-title">Tipo de zona</div>
             <ColumnGraph data={msZoningData} xField={"name"} yField={"value"} />
           </div>
           <div className="dashboards-item">
+            <div className="dashboard-item-title">Calidad general</div>
             <PieGraph data={overallCondData} xField={"name"} yField={"value"} />
           </div>
           <div className="dashboards-item">
+            <div className="dashboard-item-title">Año construido</div>
             <LineGraph data={yearBuiltData} xField={"name"} yField={"value"} />
           </div>
           <div className="dashboards-item">
+            <div className="dashboard-item-title">Calidad de la cocina</div>
             <PieGraph data={kitchenQualData} xField={"name"} yField={"value"} />
           </div>
           <div className="dashboards-item">
+            <div className="dashboard-item-title">Tamaño de lote {"( "}km<sup>2</sup>{" )"} </div>
             <LineGraph data={lotAreaData} xField={"name"} yField={"value"} />
           </div>
           <div className="dashboards-item">
+            <div className="dashboard-item-title">Número de cuartos</div>
             <ColumnGraph data={bedRoomAbvGrData} xField={"name"} yField={"value"} />
           </div>
           <div className="dashboards-item">
+            <div className="dashboard-item-title">Calidad de la alberca</div>
             <PieGraph data={poolQCData} xField={"name"} yField={"value"} />
           </div>
           <div className="dashboards-item">
+            <div className="dashboard-item-title">Capacidad del garage</div>
             <ColumnGraph data={garageCarsData} xField={"name"} yField={"value"} />
           </div>
           <div className="dashboards-item">
+            <div className="dashboard-item-title">Número de baños</div>
             <PieGraph data={n_BathData} xField={"name"} yField={"value"} />
           </div>
         </div>
