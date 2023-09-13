@@ -5,12 +5,14 @@ import Slider from "@mui/material/Slider";
 import LineGraph from "./LineGraph";
 import ColumnGraph from "./ColumnGraph";
 import Papa from "papaparse";
+import PieGraph from "./PieGraph";
 
 function DashboardsC() {
   const [value, setValue] = useState([1, 100]);
   const [csvData, setCsvData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [msZoningData, setMsZoningData] = useState([]);
+  const [overallCondData, setOverallCondData] = useState([]);
 
   const marks = [
     {
@@ -46,7 +48,7 @@ function DashboardsC() {
   }, [csvData, value]);
 
   useEffect(() => {
-    getMsZoningData();
+    getAllDatas();
   }, [filteredData]);
 
   const handleChange = (event, newValue) => {
@@ -78,11 +80,11 @@ function DashboardsC() {
     setFilteredData(filteredData);
   };
 
-  const getMsZoningData = () => {
-    const msZoningData = filteredData.map((data) => {
-      return data.MSZoning;
+  const getDashboardsData = (keyName) => {
+    const dashboardsData = filteredData.map((data) => {
+      return data[keyName];
     });
-    const msZoningDataObject = msZoningData.reduce((acc, curr) => {
+    const dashboardsDataObject = dashboardsData.reduce((acc, curr) => {
       if (acc[curr]) {
         acc[curr] += 1;
       } else {
@@ -90,13 +92,18 @@ function DashboardsC() {
       }
       return acc;
     }, {});
-    const msZoningDataArray = Object.keys(msZoningDataObject).map((key) => {
+    const dashboardsDataArray = Object.keys(dashboardsDataObject).map((key) => {
       return {
         name: key,
-        value: msZoningDataObject[key],
+        value: dashboardsDataObject[key],
       };
     });
-    msZoningDataArray.forEach((data) => {
+    return dashboardsDataArray;
+  };
+
+  const getMsZoningData = () => {
+    const msZoningData = getDashboardsData("MSZoning");
+    msZoningData.forEach((data) => {
       if (data.name === "Residencial Baja Densidad") {
         data.name = "Baja";
       } else if (data.name === "Residencial Densidad Media") {
@@ -107,8 +114,49 @@ function DashboardsC() {
         data.name = "Alta";
       }
     });
-    console.log(msZoningDataArray);
-    setMsZoningData(msZoningDataArray);
+    setMsZoningData(msZoningData);
+  };
+
+  const getOverallCondData = () => {
+    const overallCondData = getDashboardsData("OverallCond");
+    overallCondData.forEach((data) => {
+      if (data.name === "1" || data.name === "2" || data.name === "3") {
+        data.name = "Malo";
+      } else if (data.name === "4" || data.name === "5" || data.name === "6") {
+        data.name = "Regular";
+      } else if (
+        data.name === "7" ||
+        data.name === "8" ||
+        data.name === "9" ||
+        data.name === "10"
+      ) {
+        data.name = "Excelente";
+      }
+    });
+    const overallCondDataObject = overallCondData.reduce((acc, curr) => {
+      if (acc[curr.name]) {
+        acc[curr.name] += curr.value;
+      } else {
+        acc[curr.name] = curr.value;
+      }
+      return acc;
+    }, {});
+    const overallCondDataArray = Object.keys(overallCondDataObject).map(
+      (key) => {
+        return {
+          name: key,
+          value: overallCondDataObject[key],
+        };
+      }
+    );
+    setOverallCondData(overallCondDataArray);
+  };
+
+  
+
+  const getAllDatas = () => {
+    getMsZoningData();
+    getOverallCondData();
   };
 
   return (
@@ -127,7 +175,14 @@ function DashboardsC() {
         </div>
         <div className="dashboards-container">
           <div className="dashboards-item">
-            <ColumnGraph datos={msZoningData} xField={"name"} yField={"value"} />
+            <ColumnGraph
+              datos={msZoningData}
+              xField={"name"}
+              yField={"value"}
+            />
+          </div>
+          <div className="dashboards-item">
+            <PieGraph data={overallCondData} xField={"name"} yField={"value"} />
           </div>
           <div className="dashboards-item">
             <LineGraph />
