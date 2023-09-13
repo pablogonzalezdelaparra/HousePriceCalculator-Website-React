@@ -66,6 +66,48 @@
   width: 80%;
 }
 
+.main-container > .form-container > .form-body > .form-title {
+  font-size: 36px;
+  font-weight: 700;
+  margin: 0;
+  color: #3f51f4;
+  text-align: center;
+}
+
+.main-container > .form-container > .form-body > .form-price {
+  font-size: 36px;
+  font-weight: 700;
+  margin: 0;
+  color: #3f51f4;
+  text-align: center;
+}
+
+.main-container > .form-container > .form-body.form-price > .price-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  width: 25%;
+  margin-top: 24px;
+  background-color: #3f51f4;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  transition: all 0.3s;
+}
+
+.main-container
+  > .form-container
+  > .form-body.form-price
+  > .price-button:hover {
+  background-color: transparent;
+  border: 1px solid #3f51f4;
+  color: #3f51f4;
+  cursor: pointer;
+}
+
 .main-container > .form-container > .form-header > .form-title {
   margin: 0;
 }
@@ -79,7 +121,7 @@
   width: 80%;
 }
 
-.main-container > .form-container > .form-body > div.checkbox{
+.main-container > .form-container > .form-body > div.checkbox {
   display: flex;
   min-height: 82px;
   flex-direction: column;
@@ -88,7 +130,7 @@
   min-width: 258px;
 }
 
-.main-container > .form-container > .form-body > div.checkbox > p{
+.main-container > .form-container > .form-body > div.checkbox > p {
   margin: 0;
   margin-bottom: 1rem;
   letter-spacing: -0.05px;
@@ -97,7 +139,7 @@
   font-weight: 500;
 }
 
-select{
+select {
   min-width: 258px;
 }
 
@@ -113,11 +155,11 @@ select{
   align-items: center;
 }
 
-.main-container > .form-container > .form-body label > span >svg{
+.main-container > .form-container > .form-body label > span > svg {
   width: 10px;
 }
 
-#evergreen-tooltip-2 > p{
+#evergreen-tooltip-2 > p {
   font-size: 12px;
   line-height: 16px;
 }
@@ -151,6 +193,21 @@ select{
   cursor: pointer;
 }
 
+.main-container > .form-container > .form-body > .price-text {
+  font-size: 15px;
+}
+
+.main-container > .form-container > .form-price {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-container > .form-container > .form-body > .price-value {
+  font-size: 15px;
+}
+
 @media screen and (max-width: 768px) {
   .main-container {
     padding: 64px 0px;
@@ -162,5 +219,35 @@ select{
 
   .main-container > .form-container > .form-header {
     font-size: 24px;
+  }
+
+  .main-container > .form-container > .form-body.form-price > .price-button {
+    width: 80%;
+  }
+
+  .main-container > .form-container > .form-body.form-price > .form-title,
+  .main-container > .form-container > .form-body.form-price > .form-price {
+    font-size: 30px;
+  }
+
+  .main-container > .form-container > .form-body {
+    width: 100%;
+  }
+
+  .main-container > .form-container > .form-body > .button {
+    width: 80%;
+  }
+
+  .main-container > .form-container > .form-body > .ub-mb_24px {
+    width: 80%;
+  }
+
+  .main-container > .form-container > .form-body > p.obligatory-text {
+    margin-right: auto;
+  }
+
+  .main-container > .form-container > .form-body > div.checkbox {
+    justify-content: center;
+    align-items: center;
   }
 }

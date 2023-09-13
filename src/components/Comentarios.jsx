@@ -28,9 +28,7 @@ function Comentarios() {
           setCommentsList(res);
         })
         , {
-          pending: "Cargando comentarios...",
           success: "Comentarios cargados",
-          error: "Error al cargar comentarios",
         }, {
           pauseOnFocusLoss: false,
           autoClose: 3000,
