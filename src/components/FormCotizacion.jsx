@@ -175,7 +175,7 @@ function FormCotizacion() {
                       </Tooltip>
                     </span>
                   }
-                  placeholder="100"
+                  placeholder="1000"
                   type="number"
                   required
                   onChange={(e) => {
@@ -196,7 +196,7 @@ function FormCotizacion() {
                       </Tooltip>
                     </span>
                   }
-                  placeholder="100"
+                  placeholder="1000"
                   type="number"
                   required
                   onChange={(e) => {
@@ -217,7 +217,7 @@ function FormCotizacion() {
                       </Tooltip>
                     </span>
                   }
-                  placeholder="100"
+                  placeholder="1000"
                   type="number"
                   required
                   onChange={(e) => {
@@ -232,7 +232,7 @@ function FormCotizacion() {
                       <text>Año de construcción</text>
                     </span>
                   }
-                  placeholder="100"
+                  placeholder="2023"
                   type="number"
                   required
                   onChange={(e) => {
@@ -253,7 +253,7 @@ function FormCotizacion() {
                       </Tooltip>
                     </span>
                   }
-                  placeholder="100"
+                  placeholder="1000"
                   type="number"
                   required
                   onChange={(e) => {
@@ -268,7 +268,7 @@ function FormCotizacion() {
                       <text>Baños completos en el sótano</text>
                     </span>
                   }
-                  placeholder="100"
+                  placeholder="3"
                   type="number"
                   required
                   onChange={(e) => {
@@ -283,7 +283,7 @@ function FormCotizacion() {
                       <text>Medios baños en el sótano</text>
                     </span>
                   }
-                  placeholder="100"
+                  placeholder="2"
                   type="number"
                   required
                   onChange={(e) => {
@@ -304,7 +304,7 @@ function FormCotizacion() {
                       </Tooltip>
                     </span>
                   }
-                  placeholder="100"
+                  placeholder="1"
                   type="number"
                   required
                   onChange={(e) => {
@@ -319,7 +319,7 @@ function FormCotizacion() {
                       <text>Número de chimeneas</text>
                     </span>
                   }
-                  placeholder="100"
+                  placeholder="1"
                   type="number"
                   required
                   onChange={(e) => {
@@ -334,7 +334,7 @@ function FormCotizacion() {
                       <text>Capacidad de carros en cochera</text>
                     </span>
                   }
-                  placeholder="100"
+                  placeholder="2"
                   type="number"
                   required
                   onChange={(e) => {
@@ -355,7 +355,7 @@ function FormCotizacion() {
                       </Tooltip>
                     </span>
                   }
-                  placeholder="100"
+                  placeholder="1000"
                   type="number"
                   required
                   onChange={(e) => {
@@ -376,7 +376,7 @@ function FormCotizacion() {
                       </Tooltip>
                     </span>
                   }
-                  placeholder="100"
+                  placeholder="1000"
                   type="number"
                   required
                   onChange={(e) => {
@@ -398,7 +398,7 @@ function FormCotizacion() {
                       </Tooltip>
                     </span>
                   }
-                  placeholder="100"
+                  placeholder="2023"
                   type="number"
                   required
                   onChange={(e) => {
