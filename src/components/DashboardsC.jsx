@@ -17,6 +17,7 @@ function DashboardsC() {
   const [kitchenQualData, setKitchenQualData] = useState([]);
   const [lotAreaData, setLotAreaData] = useState([]);
   const [bedRoomAbvGrData, setBedRoomAbvGrData] = useState([]);
+  const [poolQCData, setPoolQCData] = useState([]);
 
   const marks = [
     {
@@ -192,6 +193,11 @@ function DashboardsC() {
     setBedRoomAbvGrData(bedRoomAbvGrData);
   };
 
+  const getPoolQCData = () => {
+    const poolQCData = getDashboardsData("PoolQC");
+    setPoolQCData(poolQCData);
+  };
+
   const getAllDatas = () => {
     getMsZoningData();
     getOverallCondData();
@@ -199,6 +205,7 @@ function DashboardsC() {
     getKitchenQualData();
     getLotAreaData();
     getBedRoomAbvGrData();
+    getPoolQCData();
   };
   return (
     <Fragment>
@@ -232,6 +239,9 @@ function DashboardsC() {
           </div>
           <div className="dashboards-item">
             <ColumnGraph data={bedRoomAbvGrData} xField={"name"} yField={"value"} />
+          </div>
+          <div className="dashboards-item">
+            <PieGraph data={poolQCData} xField={"name"} yField={"value"} />
           </div>
         </div>
       </div>
