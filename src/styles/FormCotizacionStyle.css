@@ -72,14 +72,60 @@
 
 .main-container > .form-container > .form-body {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 1rem;
   justify-content: center;
   align-items: center;
   width: 80%;
 }
 
+.main-container > .form-container > .form-body > div.checkbox{
+  display: flex;
+  min-height: 82px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-width: 258px;
+}
+
+.main-container > .form-container > .form-body > div.checkbox > p{
+  margin: 0;
+  margin-bottom: 1rem;
+  letter-spacing: -0.05px;
+  line-height: 18px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+select{
+  min-width: 258px;
+}
+
 .main-container > .form-container > .form-body label {
   text-align: left;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.main-container > .form-container > .form-body label > span {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.main-container > .form-container > .form-body label > span >svg{
+  width: 10px;
+}
+
+#evergreen-tooltip-2 > p{
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.main-container > .form-container > .form-body > p.obligatory-text {
+  align-self: flex-end;
+  margin-left: auto;
+  font-size: 0.7rem;
 }
 
 .main-container > .form-container > .form-body > .button {
