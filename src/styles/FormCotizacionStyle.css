@@ -235,7 +235,11 @@ select {
   }
 
   .main-container > .form-container > .form-body > .button {
-    width: 80%;
+    width: 60%;
+  }
+
+  .main-container > .form-container > .form-body.form-price > .price-button {
+    width: 60%;
   }
 
   .main-container > .form-container > .form-body > .ub-mb_24px {
@@ -250,4 +254,23 @@ select {
     justify-content: center;
     align-items: center;
   }
+}
+
+.more-info-button {
+  width: 100%;
+  min-height: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.more-info-button > .more-info-button-text {
+  font-size: 12px;
+  border: 1px solid #3f51f4;
+  border-radius: 8px;
+  padding: 8px 12px;
+  transition: all 0.3s;
+  cursor: pointer;
 }

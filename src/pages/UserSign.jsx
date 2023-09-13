@@ -189,6 +189,7 @@ function UserSign(props) {
               label="Ingresa tu contraseña"
               placeholder="Contraseña"
               type="password"
+              hint ="Al menos 8 caracteres, 1 caracter especial, 1 número y 1 letra mayúscula"
               required
               onChange={(e) => {
                 editUserInfo("password", e.target.value);
