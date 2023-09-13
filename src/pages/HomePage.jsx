@@ -6,7 +6,7 @@ import Comentarios from '../components/Comentarios';
 import DashboardsC from '../components/DashboardsC';
 import FormCotizacion from '../components/FormCotizacion';
 import Footer from '../components/Footer';
-import LineGraph from '../components/LineGraph';
+import TweetObj from '../components/Tweet';
 
 function HomePage() {
   return (
@@ -16,6 +16,7 @@ function HomePage() {
         <FormCotizacion />
         <DashboardsC />
         <Comentarios />
+        <TweetObj />
         <Footer />
     </div>
   )

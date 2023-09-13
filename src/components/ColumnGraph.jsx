@@ -1,8 +1,8 @@
 import React from "react";
 import LineGraphStyle from "../styles/LineGraphStyle.css";
-import { Line } from "@ant-design/charts";
+import { Column } from "@ant-design/charts";
 
-function LineGraph(props) {
+function ColumnGraph(props) {
   const data = props.data ? props.data : [
     { year: "1991", value: 3 },
     { year: "1992", value: 4 },
@@ -41,7 +41,7 @@ function LineGraph(props) {
       position: "right | left",
     },
   };
-  return <Line {...config} />;
+  return <Column {...config} />;
 }
 
-export default LineGraph;
+export default ColumnGraph;

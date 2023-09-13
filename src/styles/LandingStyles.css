@@ -87,10 +87,10 @@
 }
 
 .landing-main-container > .second-text > .call-to-action:hover {
-    background-color: #3f51f4;
-    color: #fff;
-    font-weight: bolder;
-    transition: all 0.3s;
+  background-color: #3f51f4;
+  color: #fff;
+  font-weight: bolder;
+  transition: all 0.3s;
 }
 
 @media screen and (max-width: 1300px) {
@@ -120,6 +120,11 @@
   .landing-main-container > .second-text > .title {
     font-size: 32px;
     margin-bottom: 8px;
+    margin-right: 1rem;
+  }
+
+  .landing-main-container > .second-text > a.call-to-action {
+    margin-right: 1rem;
   }
 
   .landing-main-container > .second-text > .title > .first-title {
