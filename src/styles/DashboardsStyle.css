@@ -28,7 +28,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 300px;
+    width: 350px;
     height: 150px;
     border: 1px solid transparent;
     background: linear-gradient(white, white) padding-box, linear-gradient(180deg, #0193fd, #3f51f4) border-box;
