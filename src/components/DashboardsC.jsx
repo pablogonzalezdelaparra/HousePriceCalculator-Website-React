@@ -175,14 +175,7 @@ function DashboardsC() {
   };
 
   const getLotAreaData = () => {
-    const lotAreaData = getDashboardsData("LotArea");
-    lotAreaData.sort((a, b) => {
-      return a.name.split("-")[0] - b.name.split("-")[0];
-    });
-    lotAreaData.forEach((data) => {
-      data.name = `${data.name.split("-")[0] / 1000}-${
-        data.name.split("-")[1] / 1000}`;
-    });
+    const lotAreaData = getDashboardsData("LotArea_M");
     setLotAreaData(lotAreaData);    
   };
 
@@ -253,7 +246,7 @@ function DashboardsC() {
             <PieGraph data={kitchenQualData} xField={"name"} yField={"value"} />
           </div>
           <div className="dashboards-item">
-            <div className="dashboard-item-title">Tamaño de lote {"( "}km<sup>2</sup>{" )"} </div>
+            <div className="dashboard-item-title">Tamaño de lote {"( "}m<sup>2</sup>{" )"} </div>
             <LineGraph data={lotAreaData} xField={"name"} yField={"value"} />
           </div>
           <div className="dashboards-item">
