@@ -14,6 +14,9 @@ function DashboardsC() {
   const [msZoningData, setMsZoningData] = useState([]);
   const [overallCondData, setOverallCondData] = useState([]);
   const [yearBuiltData, setYearBuiltData] = useState([]);
+  const [kitchenQualData, setKitchenQualData] = useState([]);
+  const [lotAreaData, setLotAreaData] = useState([]);
+  const [bedRoomAbvGrData, setBedRoomAbvGrData] = useState([]);
 
   const marks = [
     {
@@ -163,10 +166,39 @@ function DashboardsC() {
     setYearBuiltData(yearBuiltData);
   };
 
+  const getKitchenQualData = () => {
+    const kitchenQualData = getDashboardsData("KitchenQual");
+    setKitchenQualData(kitchenQualData);
+  };
+
+  const getLotAreaData = () => {
+    const lotAreaData = getDashboardsData("LotArea");
+    lotAreaData.sort((a, b) => {
+      return a.name.split("-")[0] - b.name.split("-")[0];
+    });
+    lotAreaData.forEach((data) => {
+      data.name = `${data.name.split("-")[0] / 1000}-${
+        data.name.split("-")[1] / 1000}`;
+    });
+    setLotAreaData(lotAreaData);    
+  };
+
+  const getBedRoomAbvGrData = () => {
+    const bedRoomAbvGrData = getDashboardsData("BedroomAbvGr");
+    // Ordenar de mayor a menor por el name
+    bedRoomAbvGrData.sort((a, b) => {
+      return b.name - a.name;
+    });
+    setBedRoomAbvGrData(bedRoomAbvGrData);
+  };
+
   const getAllDatas = () => {
     getMsZoningData();
     getOverallCondData();
     getYearBuiltData();
+    getKitchenQualData();
+    getLotAreaData();
+    getBedRoomAbvGrData();
   };
   return (
     <Fragment>
@@ -184,11 +216,7 @@ function DashboardsC() {
         </div>
         <div className="dashboards-container">
           <div className="dashboards-item">
-            <ColumnGraph
-              data={msZoningData}
-              xField={"name"}
-              yField={"value"}
-            />
+            <ColumnGraph data={msZoningData} xField={"name"} yField={"value"} />
           </div>
           <div className="dashboards-item">
             <PieGraph data={overallCondData} xField={"name"} yField={"value"} />
@@ -197,7 +225,13 @@ function DashboardsC() {
             <LineGraph data={yearBuiltData} xField={"name"} yField={"value"} />
           </div>
           <div className="dashboards-item">
-            <LineGraph />
+            <PieGraph data={kitchenQualData} xField={"name"} yField={"value"} />
+          </div>
+          <div className="dashboards-item">
+            <LineGraph data={lotAreaData} xField={"name"} yField={"value"} />
+          </div>
+          <div className="dashboards-item">
+            <ColumnGraph data={bedRoomAbvGrData} xField={"name"} yField={"value"} />
           </div>
         </div>
       </div>
