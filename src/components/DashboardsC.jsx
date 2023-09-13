@@ -3,6 +3,7 @@ import DashboardsStyle from "../styles/DashboardsStyle.css";
 import Box from "@mui/material/Box";
 import Slider from "@mui/material/Slider";
 import LineGraph from "./LineGraph";
+import ColumnGraph from "./ColumnGraph";
 import Papa from "papaparse";
 
 function DashboardsC() {
@@ -81,7 +82,6 @@ function DashboardsC() {
     const msZoningData = filteredData.map((data) => {
       return data.MSZoning;
     });
-    // Convertir los datos a un objeto con la cantidad de veces que se repite cada valor
     const msZoningDataObject = msZoningData.reduce((acc, curr) => {
       if (acc[curr]) {
         acc[curr] += 1;
@@ -90,13 +90,24 @@ function DashboardsC() {
       }
       return acc;
     }, {});
-    // Convertir el objeto a un array de objetos
     const msZoningDataArray = Object.keys(msZoningDataObject).map((key) => {
       return {
         name: key,
         value: msZoningDataObject[key],
       };
     });
+    msZoningDataArray.forEach((data) => {
+      if (data.name === "Residencial Baja Densidad") {
+        data.name = "Baja";
+      } else if (data.name === "Residencial Densidad Media") {
+        data.name = "Media";
+      } else if (data.name === "Residencial Pueblo Flotante") {
+        data.name = "Pueblo";
+      } else if (data.name === "Residencial Alta Densidad") {
+        data.name = "Alta";
+      }
+    });
+    console.log(msZoningDataArray);
     setMsZoningData(msZoningDataArray);
   };
 
@@ -116,7 +127,7 @@ function DashboardsC() {
         </div>
         <div className="dashboards-container">
           <div className="dashboards-item">
-            <LineGraph datos={msZoningData} xField={"name"} yField={"value"} />
+            <ColumnGraph datos={msZoningData} xField={"name"} yField={"value"} />
           </div>
           <div className="dashboards-item">
             <LineGraph />
