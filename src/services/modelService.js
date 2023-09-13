@@ -4,6 +4,7 @@ export async function getPrediction(parameterInfo) {
   const bodyParameterData = {
     LotArea: parameterInfo.LotArea,
     YearBuilt: parameterInfo.YearBuilt,
+    YearRemodAdd: parameterInfo.YearRemodAdd,
     BsmtExposure: parameterInfo.BsmtExposure,
     BsmtFinSF1: parameterInfo.BsmtFinSF1,
     TotalBsmtSF: parameterInfo.TotalBsmtSF,
@@ -33,6 +34,42 @@ export async function getPrediction(parameterInfo) {
     SaleType: parameterInfo.SaleType,
     SaleCondition_Normal: parameterInfo.SaleCondition_Normal,
   };
+
+  const bodyParameterDataTest = {
+    'LotArea': '10990', 
+    'YearBuilt': '2007', 
+    'YearRemodAdd': '2007', 
+    'BsmtExposure': 'Gd',
+    'BsmtFinSF1': '1500', 
+    'TotalBsmtSF': '2000', 
+    'CentralAir': '1', 
+    'GrLivArea': '1900', 
+    'BsmtFullBath': '1', 
+    'HalfBath': '2', 
+    'KitchenAbvGr': '1', 
+    'Fireplaces': '1', 
+    'GarageCars': '4', 
+    'WoodDeckSF': '250', 
+    'ScreenPorch': '0', 
+    'MSZoning': 'MSZoning_RM', 
+    'LotConfig_Inside': '1', 
+    'LandSlope_Sev': '0', 
+    'Neighborhood': 'Neighborhood_MeadowV', 
+    'Condition1': 'Condition1_Feedr', 
+    'BldgType': '-1', 
+    'RoofMatl': 'RoofMatl_CompShg', 
+    'Exterior1st': 'Exterior1st_BrkFace', 
+    'Exterior2nd_BrkFace': '0', 
+    'Foundation': 'Foundation_BrkTil',
+    'Heating': '-1', 
+    'Electrical_SBrkr': '1', 
+    'Functional': 'Functional_Min1', 
+    'GarageType_2Types': '0', 
+    'SaleType': 'SaleType_COD',
+    'SaleCondition_Normal': '1'
+  }
+
+  console.log(bodyParameterData)
   const validatePrediction = await fetch(
     `${FLASK_BASE_URL}/model/getPrediction`,
     {

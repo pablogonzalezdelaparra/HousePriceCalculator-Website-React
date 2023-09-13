@@ -16,20 +16,22 @@ function FormCotizacion() {
   const [loading, setLoading] = useState(false);
   const [selectedValue, setSelectedValue] = React.useState("daily"); // Se modificará con los valores que se requieran
   const [formData, setFormData] = useState({});
+  const [price, setPrice] = useState(0);
+  const [priceData, setPriceData] = useState(false);
 
   const enviarCotizacion = () => {
     toast.promise(
       async () => {
         const modelResponse = await getPrediction(formData);
-        if (modelResponse.prediccion === null || modelResponse.prediccion === "") {
+        if (
+          modelResponse.prediccion === null ||
+          modelResponse.prediccion === ""
+        ) {
           throw new Error("Error al generar una predicción");
         }
-
-        console.log(modelResponse);
+        setPrice(modelResponse.prediccion);
       },
       {
-        pending: "Cargando modelo...",
-        success: "Modelo cargado correctamente",
         error: "Error al cargar el modelo",
       },
       {
@@ -38,12 +40,11 @@ function FormCotizacion() {
         pauseOnHover: false,
       }
     );
-    /*
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
+      setPriceData(true);
     }, 4000);
-    */
   };
 
   const options = React.useMemo(
@@ -97,7 +98,21 @@ function FormCotizacion() {
     <Fragment>
       <div className="main-container">
         <div className="form-container">
-          {loading ? (
+          {priceData ? (
+            <div className="form-body form-price">
+              <p className="form-title">Tu cotización es de:</p>
+              {/* round to 2 decimals */}
+              <p className="form-price">${Number(Math.exp(price)).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
+              <div
+                className="price-button"
+                onClick={() => {
+                  setPriceData(false);
+                }}
+              >
+                <span>Realizar otra cotización</span>
+              </div>
+            </div>
+          ) : loading ? (
             <div className="loading">
               <svg
                 height="100"
@@ -334,6 +349,28 @@ function FormCotizacion() {
                   required
                   onChange={(e) => {
                     setFormData({ ...formData, ScreenPorch: e.target.value });
+                    console.log(formData);
+                  }}
+                  width="32%"
+                  inputWidth="100%"
+                />
+                <TextInputField
+                  label={
+                    <span>
+                      <text>Año de remodelación</text>
+                      <Tooltip
+                        content="Se ingresa el año que se remodeló la casa. Si no se ha remodelado, poner 0."
+                        appearance="card"
+                      >
+                        <InfoSignIcon />
+                      </Tooltip>
+                    </span>
+                  }
+                  placeholder="100"
+                  type="number"
+                  required
+                  onChange={(e) => {
+                    setFormData({ ...formData, YearRemodAdd: e.target.value });
                     console.log(formData);
                   }}
                   width="32%"
