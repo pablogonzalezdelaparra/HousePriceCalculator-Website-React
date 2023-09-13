@@ -15,7 +15,39 @@ import { toast } from "react-toastify";
 function FormCotizacion() {
   const [loading, setLoading] = useState(false);
   const [selectedValue, setSelectedValue] = React.useState("daily"); // Se modificará con los valores que se requieran
-  const [formData, setFormData] = useState({});
+  const [formData, setFormData] = useState({
+    'LotArea': '10990', 
+    'YearBuilt': '2007', 
+    'YearRemodAdd': '2007', 
+    'BsmtExposure': 'Gd',
+    'BsmtFinSF1': '1500', 
+    'TotalBsmtSF': '2000', 
+    'CentralAir': '1', 
+    'GrLivArea': '1900', 
+    'BsmtFullBath': '1', 
+    'HalfBath': '2', 
+    'KitchenAbvGr': '1', 
+    'Fireplaces': '1', 
+    'GarageCars': '4', 
+    'WoodDeckSF': '250', 
+    'ScreenPorch': '0', 
+    'MSZoning': 'MSZoning_RM', 
+    'LotConfig_Inside': '1', 
+    'LandSlope_Sev': '0', 
+    'Neighborhood': 'Neighborhood_MeadowV', 
+    'Condition1': 'Condition1_Feedr', 
+    'BldgType': '-1', 
+    'RoofMatl': 'RoofMatl_CompShg', 
+    'Exterior1st': 'Exterior1st_BrkFace', 
+    'Exterior2nd_BrkFace': '0', 
+    'Foundation': 'Foundation_BrkTil',
+    'Heating': '-1', 
+    'Electrical_SBrkr': '1', 
+    'Functional': 'Functional_Min1', 
+    'GarageType_2Types': '0', 
+    'SaleType': 'SaleType_COD',
+    'SaleCondition_Normal': '1'
+  });
   const [price, setPrice] = useState(0);
   const [priceData, setPriceData] = useState(false);
   const [moreInfoFlag, setMoreInfoFlag] = useState(false);
@@ -150,7 +182,7 @@ function FormCotizacion() {
                       </Tooltip>
                     </span>
                   }
-                  placeholder="100"
+                  placeholder="1000"
                   type="number"
                   required
                   onChange={(e) => {
@@ -171,7 +203,7 @@ function FormCotizacion() {
                       </Tooltip>
                     </span>
                   }
-                  placeholder="100"
+                  placeholder="1000"
                   type="number"
                   required
                   onChange={(e) => {
@@ -192,7 +224,7 @@ function FormCotizacion() {
                       </Tooltip>
                     </span>
                   }
-                  placeholder="100"
+                  placeholder="1000"
                   type="number"
                   required
                   onChange={(e) => {
@@ -207,7 +239,7 @@ function FormCotizacion() {
                       <text>Año de construcción</text>
                     </span>
                   }
-                  placeholder="100"
+                  placeholder="2023"
                   type="number"
                   required
                   onChange={(e) => {
@@ -228,7 +260,7 @@ function FormCotizacion() {
                       </Tooltip>
                     </span>
                   }
-                  placeholder="100"
+                  placeholder="1000"
                   type="number"
                   required
                   onChange={(e) => {
@@ -243,7 +275,7 @@ function FormCotizacion() {
                       <text>Baños completos en el sótano</text>
                     </span>
                   }
-                  placeholder="100"
+                  placeholder="3"
                   type="number"
                   required
                   onChange={(e) => {

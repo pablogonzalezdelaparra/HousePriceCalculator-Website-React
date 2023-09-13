@@ -235,7 +235,11 @@ select {
   }
 
   .main-container > .form-container > .form-body > .button {
-    width: 80%;
+    width: 60%;
+  }
+
+  .main-container > .form-container > .form-body.form-price > .price-button {
+    width: 60%;
   }
 
   .main-container > .form-container > .form-body > .ub-mb_24px {
