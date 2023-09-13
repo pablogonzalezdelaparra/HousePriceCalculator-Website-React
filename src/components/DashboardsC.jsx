@@ -155,6 +155,10 @@ function DashboardsC() {
 
   const getYearBuiltData = () => {
     const yearBuiltData = getDashboardsData("YearBuilt");
+    // Ordenarlo por el atributo name donde tiene el siguiente formato: 2000-2005 y 2005-2010. Ordenarlo de mayor a menor
+    yearBuiltData.sort((a, b) => {
+      return b.name.split("-")[0] - a.name.split("-")[0];
+    });
     yearBuiltData.splice(15, yearBuiltData.length - 15);
     setYearBuiltData(yearBuiltData);
   };
