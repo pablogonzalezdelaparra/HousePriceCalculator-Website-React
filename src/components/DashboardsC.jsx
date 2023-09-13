@@ -19,6 +19,7 @@ function DashboardsC() {
   const [bedRoomAbvGrData, setBedRoomAbvGrData] = useState([]);
   const [poolQCData, setPoolQCData] = useState([]);
   const [garageCarsData, setGarageCarsData] = useState([]);
+  const [n_BathData, setN_BathData] = useState([]);
 
   const marks = [
     {
@@ -204,6 +205,11 @@ function DashboardsC() {
     setGarageCarsData(garageCarsData);
   };
 
+  const getN_BathData = () => {
+    const n_BathData = getDashboardsData("N_Bath");
+    setN_BathData(n_BathData);
+  };
+
   const getAllDatas = () => {
     getMsZoningData();
     getOverallCondData();
@@ -213,6 +219,7 @@ function DashboardsC() {
     getBedRoomAbvGrData();
     getPoolQCData();
     getGarageCarsData();
+    getN_BathData();
   };
   return (
     <Fragment>
@@ -252,6 +259,9 @@ function DashboardsC() {
           </div>
           <div className="dashboards-item">
             <ColumnGraph data={garageCarsData} xField={"name"} yField={"value"} />
+          </div>
+          <div className="dashboards-item">
+            <PieGraph data={n_BathData} xField={"name"} yField={"value"} />
           </div>
         </div>
       </div>
