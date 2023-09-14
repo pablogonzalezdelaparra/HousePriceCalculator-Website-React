@@ -254,6 +254,11 @@ select {
     justify-content: center;
     align-items: center;
   }
+
+  .main-container > .form-container > .form-body > .more-info-button > .more-info-button-text {
+    margin-left: 2.5rem;
+  }
+
 }
 
 .more-info-button {
